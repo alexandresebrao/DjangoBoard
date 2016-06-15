@@ -10,7 +10,7 @@ class Topic(models.Model):
     forum = models.ForeignKey(Forum)
     datetime = models.DateTimeField(auto_now=True)
 
-    def length_reply(self):
+    def length_replys(self):
         return len(self.reply_set.all())
 
     def replys(self):
