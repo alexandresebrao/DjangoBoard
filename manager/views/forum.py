@@ -5,14 +5,10 @@ from django.shortcuts import render
 
 def forum(request, forum_id):
     forum = Forum.objects.get(id=forum_id)
-    topics = forum.topic_set.all()
-    paginator = Paginator(topics, 25)  # Show 25 contacts per page
+    paginator = Paginator(forum.topic_set.all(), 25)
     context = {}
     context['forum'] = forum
-    try:
-        listtopic = paginator.page(0)
-    except:
-        listtopic = None
+    listtopic = paginator.page(1)
     context['listtopic'] = listtopic
     template = 'forum.html'
     return render(request, template, context)
@@ -20,12 +16,11 @@ def forum(request, forum_id):
 
 def page(request, forum_id, page_id):
     forum = Forum.objects.get(id=forum_id)
-    topics = forum.topic_set.all()
-    paginator = Paginator(topics, 25)  # Show 25 contacts per page
+    paginator = Paginator(forum.topic_set.all(), 25)
     context = {}
     context['forum'] = forum
     try:
-        listtopic = paginator.page(page)
+        listtopic = paginator.page(page_id)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         listtopic = paginator.page(1)

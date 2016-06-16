@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block title%}Postar Novo Topico {{forum.name}}{%endblock%}
+{%block corpo%}
+<form class="form-horizontal" method="POST">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Criar Tópico em {{forum.name}}</legend>
+    <div class="form-group">
+      <label for="Titulos" class="col-lg-2 control-label">Titulo</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="title" id="inputEmail" placeholder="Titulo">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Corpo" class="col-lg-2 control-label">Corpo</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" name="body" rows="3" id="textArea"></textarea>
+        <span class="help-block">Escreva sua mensagem</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+{%endblock corpo%}

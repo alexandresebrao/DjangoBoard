@@ -4,7 +4,7 @@
 
   <h3>({{forum.category}}) {{forum.name}}</h3>
   <div class="row">
-    <a href="#" class="btn btn-primary btn-lg">Novo topico</a>
+    <a href="/post/{{forum.id}}" class="btn btn-primary">Novo topico</a>
   <div class="row">
     {%for topic in listtopic%}
     <div class="col-md-6">{{topic.title}}</div>
@@ -17,15 +17,15 @@
   <div class="pagination">
       <span class="step-links">
           {% if listtopic.has_previous %}
-              <a href="?page={{ listtopic.previous_page_number }}">previous</a>
+              <a href="?page={{ listtopic.previous_page_number }}">anterior</a>
           {% endif %}
 
           <span class="current">
-              Page {{ listtopic.number }} of {{ listtopic.paginator.num_pages }}.
+              Pagina {{ listtopic.number }} de {{ listtopic.paginator.num_pages }}.
           </span>
 
           {% if listtopic.has_next %}
-              <a href="?page={{ listtopic.next_page_number }}">next</a>
+              <a href="/forum/{{forum.id}}/{{ listtopic.next_page_number }}">próximo</a>
           {% endif %}
       </span>
   </div>

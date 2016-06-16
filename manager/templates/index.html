@@ -10,7 +10,7 @@
   <h3>{{cat.title}}</h3>
   <div class="row">
     {%for forum in cat.forums%}
-    <div class="col-md-3">{{forum.name}}</div>
+    <div class="col-md-3"><a href="/forum/{{forum.id}}">{{forum.name}}</a></div>
     <div class="col-md-6">.col-md-6</div>
     <div class="col-md-3">.col-md-3</div>
     {%endfor%}
