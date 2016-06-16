@@ -1,14 +1,13 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from manager.models.forum import Forum
-from django.shortcuts import render
+from post.models.reply import Reply
+from post.models.topic import Topic
+from django.shortcuts import redirect
 
 
-def reply(request, forum_id):
-    forum = Forum.objects.get(id=forum_id)
-    paginator = Paginator(forum.topic_set.all(), 25)
-    context = {}
-    context['forum'] = forum
-    listtopic = paginator.page(1)
-    context['listtopic'] = listtopic
-    template = 'forum.html'
-    return render(request, template, context)
+def reply(request, topic_id):
+    reply = Reply()
+    reply.body = request.POST['body']
+    reply.user = request.user
+    reply.topic = Topic.objects.get(id=topic_id)
+    reply.save()
+    string_redirect = "/post/%s/%s" % (reply.topic.forum.id, reply.topic.id)
+    return redirect(string_redirect)

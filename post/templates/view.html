@@ -22,4 +22,48 @@
       <td>Data</td>
       <td>{{topic.datetime}}</td>
 </table>
-</section>{%endblock%}
+</section>
+
+{%for reply in topic.replys%}
+<section class="row">
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th colspan="4">Mensagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="info">{{reply.username}}</td>
+      <td class="success"><article>{{reply.body}}</article></td>
+    </tr>
+    <tr class="warning">
+      <td>Data</td>
+      <td>{{reply.datetime}}</td>
+</table>
+</section>
+{%endfor%}
+
+<section class="row">
+  <form class="form-horizontal" method="POST" action="/post/reply/{{topic.id}}/">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Responder</legend>
+      <section class="form-group">
+        <label for="Corpo" class="col-lg-2 control-label">Corpo</label>
+        <section class="col-lg-10">
+          <textarea class="form-control" name="body" rows="3" id="textArea"></textarea>
+          <span class="help-block">Escreva sua mensagem</span>
+        </section>
+      </section>
+      <section class="form-group">
+        <section class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Responder</button>
+        </section>
+      </section>
+    </fieldset>
+  </form>
+</section>
+{%endblock%}
