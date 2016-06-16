@@ -14,4 +14,4 @@ class Topic(models.Model):
         return len(self.reply_set.all())
 
     def replys(self):
-        return self.reply_set.all().order_by('-datetime')
+        return self.reply_set.all().order_by('datetime')
