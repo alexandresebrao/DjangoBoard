@@ -4,10 +4,12 @@ from django.db.models import Q
 from django.shortcuts import render
 
 
-def search(request, search_term):
+def search(request):
+    search_term = request.GET['search_term']
     context = {}
+    print "Aki oh"+search_term
     context['topics'] = Topic.objects.filter(Q(title__icontains=search_term) |
-                                            Q(body__icontains=search_term))
+                                             Q(body__icontains=search_term))
     context['replys'] = Reply.objects.filter(Q(body__icontains=search_term))
     template = 'results.html'
     return render(request, template, context)

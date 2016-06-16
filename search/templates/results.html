@@ -9,7 +9,7 @@
 
 {%for topic in topics%}
 <section class="page-header">
-  <h3>{{topic.title}}</h3>
+  <h3><a href="/post/{{topic.forum.id}}/{{topic.id}}">{{topic.title}}</a></h3>
 </section>
 
 <section class="row">
@@ -28,6 +28,9 @@
     <tr class="warning">
       <td>Data</td>
       <td>{{topic.datetime}}</td>
+      <tr class="warning">
+        <td>Forum</td>
+        <td><a href="/forum/{{topic.forum.id}}">{{topic.forum}}</a></td>
 </table>
 </section>
 {%endfor%}
@@ -37,7 +40,7 @@
 
 {%for reply in replys%}
 <section class="page-header">
-  <h1>Resposta para {{reply.topic.title}}</h1>
+  <h1>Resposta para <a href="/post/{{reply.topic.forum.id}}/{{reply.topic.id}}/">{{reply.topic.title}}</a></h1>
 </section>
 
 <section class="row">

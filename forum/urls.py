@@ -21,7 +21,7 @@ from search.views.search import search
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^post/', include('post.urls')),
-    url(r'^search/(?P<search_term>)', search),
+    url(r'^search/', search),
     url(r'^accounts/login/$', auth_views.login,
         {'template_name': 'login.html'}),
     url(r'^accounts/logout/$', auth_views.logout,
