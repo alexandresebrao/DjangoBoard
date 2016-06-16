@@ -13,3 +13,9 @@ class Forum(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def length_topics(self):
+        return len(self.topic_set.all())
+
+    def last_post_date(self):
+        return self.topic_set.last().datetime

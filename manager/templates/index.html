@@ -9,10 +9,13 @@
 {%for cat in category%}
   <h3>{{cat.title}}</h3>
   <section class="row">
+    <section class="col-md-6">Forum</section>
+    <section class="col-md-3">Tópicos</section>
+    <section class="col-md-3">Ultima Postagem</section>
     {%for forum in cat.forums%}
-    <section class="col-md-3"><a href="/forum/{{forum.id}}">{{forum.name}}</a></section>
-    <section class="col-md-6">.col-md-6</section>
-    <section class="col-md-3">.col-md-3</section>
+    <section class="col-md-6"><a href="/forum/{{forum.id}}">{{forum.name}}</a></section>
+    <section class="col-md-3">{{forum.length_topics}}</section>
+    <section class="col-md-3">{{forum.last_post_date}}</section>
     {%endfor%}
   </section>
   {%endfor%}

@@ -7,7 +7,7 @@ from django.shortcuts import render
 def search(request):
     search_term = request.GET['search_term']
     context = {}
-    print "Aki oh"+search_term
+    context['search_term'] = search_term
     context['topics'] = Topic.objects.filter(Q(title__icontains=search_term) |
                                              Q(body__icontains=search_term))
     context['replys'] = Reply.objects.filter(Q(body__icontains=search_term))
