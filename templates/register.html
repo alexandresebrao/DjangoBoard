@@ -29,10 +29,33 @@
 
     <form class="login-form" method="post">
       {%csrf_token%}
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
       <input type="text" name="username" placeholder="username"/>
-      <input type="password" name="password" placeholder="password"/>
-      <button type="submit">login</button>
-      <p class="message">Não registrado? <a href="/accounts/register/">Crie uma conta</a></p>
+      <input type="password" name="password" placeholder="senha"/>
+      <input type="password" name="v_password" placeholder="verificar senha"/>
+      <input type="text" name="email" placeholder="Email"/>
+      <select class="form-control" name="birthday_day" id="select">
+        {%for day in days%}
+        <option value="{{day}}">{{day}}</option>
+        {%endfor%}
+      </select>
+      <select class="form-control" name="birthday_month" id="select">
+        {%for month in months%}
+        <option value="{{month}}">{{month}}</option>
+        {%endfor%}
+      </select>
+      <select class="form-control" name="birthday_year" id="select">
+        {%for year in years%}
+        <option value="{{year}}">{{year}}</option>
+        {%endfor%}
+      </select>
+      <button type="submit">Cadastrar</button>
     </form>
   </div>
 </div>
