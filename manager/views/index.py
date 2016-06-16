@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    context = { 'user' : request.user }
+    context = {'user': request.user}
     category = Category.objects.all()
     context['category'] = category
     template = 'index.html'

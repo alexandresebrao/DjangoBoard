@@ -22,7 +22,7 @@ class RegisterUser(View):
         # Checar se teve campo em branco
         user = User()
         try:
-            u = User.objects.get(username=request.POST['username'])
+            User.objects.get(username=request.POST['username'])
             messages.info(request, "Já temos um usuário com este nome")
             return redirect('/accounts/register/')
         except:
