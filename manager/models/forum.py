@@ -18,4 +18,7 @@ class Forum(models.Model):
         return len(self.topic_set.all())
 
     def last_post_date(self):
-        return self.topic_set.last().datetime
+        try:
+            return self.topic_set.last().datetime
+        except:
+            return "Nenhum post ainda"

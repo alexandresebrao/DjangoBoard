@@ -15,7 +15,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="info">{{topic.user.username}}</td>
+      <td class="info">{{topic.user.username}} <br />Postagens: {{topic.user.userextension.posts}}</td>
       <td class="success"><article>{{topic.body}}</article></td>
     </tr>
     <tr class="warning">
@@ -37,7 +37,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="info">{{reply.user.username}}</td>
+      <td class="info">{{reply.user.username}} <br />Postagens: {{reply.user.userextension.posts}}</td>
       <td class="success"><article>{{reply.body}}</article></td>
     </tr>
     <tr class="warning">

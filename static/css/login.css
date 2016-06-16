@@ -119,3 +119,14 @@ body {
 0% { opacity: 0; }
 100% { opacity: 1; }
 }
+
+input:required:invalid, input:focus:invalid {
+  background-image: url(/static/img/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+input:required:valid {
+  background-image: url(/static/img/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}

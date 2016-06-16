@@ -36,10 +36,11 @@
           {% endfor %}
       </ul>
       {% endif %}
-      <input type="text" name="username" placeholder="username"/>
-      <input type="password" name="password" placeholder="senha"/>
-      <input type="password" name="v_password" placeholder="verificar senha"/>
-      <input type="text" name="email" placeholder="Email"/>
+      <input type="text" name="username" placeholder="username" required/>
+      <input type="password" name="password" placeholder="senha" required/>
+      <input type="password" name="v_password" placeholder="verificar senha" required/>
+      <input type="text" name="email" placeholder="Email" required/>
+      <span>Aniversário</span>
       <select class="form-control" name="birthday_day" id="select">
         {%for day in days%}
         <option value="{{day}}">{{day}}</option>
