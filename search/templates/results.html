@@ -2,13 +2,14 @@
 {%block title%}{{topic.title}} - {{topic.forum.name}}{%endblock%}
 {%block corpo%}
 <section class="page-header">
-  <h1>Topicos</h1>
+  <h1>Resultados para {{search_term}}</h1>
+  <h2>Topicos</h2>
 </section>
 
 
 {%for topic in topics%}
 <section class="page-header">
-  <h1>{{topic.title}}</h1>
+  <h3>{{topic.title}}</h3>
 </section>
 
 <section class="row">
@@ -31,7 +32,7 @@
 </section>
 {%endfor%}
 <section class="page-header">
-  <h1>Respostas</h1>
+  <h2>Respostas</h2>
 </section>
 
 {%for reply in replys%}

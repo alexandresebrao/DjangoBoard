@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'manager.apps.ManagerConfig',
-    'post.apps.PostConfig'
+    'post.apps.PostConfig',
+    'search.apps.SearchConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
