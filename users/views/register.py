@@ -34,6 +34,7 @@ class RegisterUser(View):
             birthday_day = request.POST['birthday_day']
             birthday_month = request.POST['birthday_month']
             birthday_year = request.POST['birthday_year']
+            user.email = request.POST['email']
             user.save()
             us = UserExtension()
             us.user = user
