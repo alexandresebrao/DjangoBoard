@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def forum(request, forum_id):
     forum = Forum.objects.get(id=forum_id)
-    paginator = Paginator(forum.topic_set.all(), 25)
+    paginator = Paginator(forum.topic_set.all().order_by('-datetime'), 25)
     context = { 'user' : request.user }
     context['forum'] = forum
     listtopic = paginator.page(1)
