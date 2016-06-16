@@ -1,2 +1,3 @@
-from create import *
-from reply import *
+from create import CreateTopicView
+from reply import reply
+from view import view

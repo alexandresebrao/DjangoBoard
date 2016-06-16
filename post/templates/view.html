@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block title%}{{topic.title}} - {{topic.forum.name}}{%endblock%}
+{%block corpo%}
+<section class="page-header">
+  <h1>{{topic.title}}</h1>
+</section>
+
+<section class="row">
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th colspan="4">Mensagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="info">{{topic.user.username}}</td>
+      <td class="success"><article>{{topic.body}}</article></td>
+    </tr>
+    <tr class="warning">
+      <td>Data</td>
+      <td>{{topic.datetime}}</td>
+</table>
+</section>{%endblock%}

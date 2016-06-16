@@ -1,20 +1,23 @@
 {%extends 'base.html'%}{%block title%}Index{%endblock title%}
 {%block corpo%}
-
-
+<section class="page-header">
   <h3>({{forum.category}}) {{forum.name}}</h3>
-  <div class="row">
+</section>
+
+
+  <section class="row">
     <a href="/post/{{forum.id}}" class="btn btn-primary">Novo topico</a>
-  <div class="row">
+  <section class="row">
     {%for topic in listtopic%}
-    <div class="col-md-6">{{topic.title}}</div>
-    <div class="col-md-3">{{topic.user.username}}</div>
-    <div class="col-md-3">.{{topic.user.length_replys}}</div>
+    <section class="col-md-3"><a href="/post/{{forum.id}}/{{topic.id}}">{{topic.title}}</a></section>
+    <section class="col-md-3">{{topic.user.username}}</section>
+    <section class="col-md-3">{{topic.length_replys}}</section>
+    <section class="col-md-3">{{topic.datetime}}</section>
     {%endfor%}
-  </div>
+  </section>
 
 
-  <div class="pagination">
+  <section class="pagination">
       <span class="step-links">
           {% if listtopic.has_previous %}
               <a href="?page={{ listtopic.previous_page_number }}">anterior</a>
@@ -28,6 +31,6 @@
               <a href="/forum/{{forum.id}}/{{ listtopic.next_page_number }}">próximo</a>
           {% endif %}
       </span>
-  </div>
+  </section>
 
 {%endblock corpo%}
