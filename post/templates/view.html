@@ -47,6 +47,7 @@
 </section>
 {%endfor%}
 
+{% if User %}
 <section class="row">
   <form class="form-horizontal" method="POST" action="/post/reply/{{topic.id}}/">
     {% csrf_token %}
@@ -68,4 +69,8 @@
     </fieldset>
   </form>
 </section>
+
+{%else%}
+<section class="row"><article><p>Você precisa ter uma conta</p></article></section>
+{%endif%}
 {%endblock%}

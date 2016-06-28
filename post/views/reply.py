@@ -1,8 +1,9 @@
 from post.models.reply import Reply
 from post.models.topic import Topic
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def reply(request, topic_id):
     reply = Reply()
     reply.body = request.POST['body']
